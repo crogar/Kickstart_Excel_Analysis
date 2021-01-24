@@ -11,7 +11,8 @@ Getting funded on Kickstarter requires meeting or exceeding the project's initia
 ### Before You Begin
 
 1. Create a new space for this project called `excel-challenge` in either DropBox or Google Drive. **Do not add this homework to an existing space**.
-       -->  `MY APPROACH`
+
+
         My Approach: I created a local folder on my pc, and I also created a new repository with the name "excel-challenge' on github that will contain the final version of this work
               - Also, the folder was uploaded to google drive and the link was set a public
 
@@ -27,17 +28,20 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
 * Use conditional formatting to fill each cell in the `state` column with a different color, depending on whether the associated campaign was successful, failed, or canceled, or is currently live.
 
   * Create a new column O called `Percent Funded` that uses a formula to uncover how much money a campaign made to reach its initial goal.
-  -->  `MY APPROACH`
+
+
   	My Approach: I decided to just divide "pledge" by "goal", leave the result of the division as a number and format the cells to represent that value as percentage and rounding the result(only formatting, the whole decimal  number is still there)
 		    Formula: "=(E2/D2))" this gives us the percent funded value needed
 
 * Use conditional formatting to fill each cell in the `Percent Funded` column using a three-color scale. The scale should start at 0 and be a dark shade of red, transitioning to green at 100, and blue at 200.
-  -->  `MY APPROACH`
+ 
+
     My Approach: for this step I decided to format all cells on their values : Minimum: 0, Midpoint: 1, Maximum: 2,
     		    This because I left the cell value as a float number and not an actual percentage
 
   * Create a new column P called `Average Donation` that uses a formula to uncover how much each backer for the project paid on average.
-  -->  `MY APPROACH`
+  
+
     My Approach: I decided to use the next formula: "=IF(L2=0,0,ROUND((E2/L2),2))" this because I wanted to be able to avoid the error resulted from trying to divide 0/0 when we know that if "backers_count" = 0 pledge value will be 0
   			- I also applied round function to the result when L'n' is not 0 and this will only show 2 decimal places
 
@@ -73,7 +77,7 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
 
   * Create a stacked column pivot chart that can be filtered by country and parent-category based on the table you have created.
  
- 
+
     My approach: Since there's no such Column or field called 'Parent Category', assuming the Column named 
     'Category' is actually the parent-category, I renamed the field under PivotTable Tools > Analyze> Active Field group, clicked the Active Field text box and renamed to 'Parent Category' which would conclude with this step
 
