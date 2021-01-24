@@ -26,14 +26,36 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
 
   * Create a new column O called `Percent Funded` that uses a formula to uncover how much money a campaign made to reach its initial goal.
   `MY APPROACH`
-  	My Approach: I decided to just divide "pledge" by "goal", leave the result of the division as a number and fortat the cells to represent that value as percentage and rouding the result(only formating, the whole decimal  number is still there)
+  	My Approach: I decided to just divide "pledge" by "goal", leave the result of the division as a number and format the cells to represent that value as percentage and rounding the result(only formatting, the whole decimal  number is still there)
 		    Formula: "=(E2/D2))" this gives us the percent funded value needed
 
 * Use conditional formatting to fill each cell in the `Percent Funded` column using a three-color scale. The scale should start at 0 and be a dark shade of red, transitioning to green at 100, and blue at 200.
+    `MY APPROACH`
+    My Approach: for this step I decided to format all cells on their values : Minimum: 0, Midpoint: 1, Maximum: 2,
+    		    This because I left the cell value as a float number and not an actual percentage
 
   * Create a new column P called `Average Donation` that uses a formula to uncover how much each backer for the project paid on average.
+    `MY APPROACH`
+    My Approach: I decided to use the next formula: "=IF(L2=0,0,ROUND((E2/L2),2))" this because I wanted to be able to avoid the error resulted from trying to divide 0/0 when we know that if "backers_count" = 0 pledge value will be 0
+  			- I also applied round function to the result when L'n' is not 0 and this will only show 2 decimal places
 
   * Create two new columns, one called `Category` at Q and another called `Sub-Category` at R, which use formulas to split the `Category and Sub-Category` column into two parts.
+    My approach: To make this work I decided to make use of the Left() which allows to split text based on index input paramater, Formula: "=LEFT(N2,SEARCH("/",N2,1)-1)"
+  			- The Left() function takes 2 arguments as parameters first one is the string and second is a integer that represents up to what index we will take the text, example: "film & video/television" to obtain the category(left of the '/') we need to take the first 12 characters
+  			- to be able to find that integer number I have made use of the function SEARCH(), which returns an integer higher than 0 if it finds a specific string in the given sample, it receives 3 parameters: SEARCH(Arg1,Arg2,Arg3(optional))
+  					Name	Required/Optional	Data type	Description
+  					Arg1	Required	String	Find_text - the text that we want to find.
+  					Arg2	Required	String	Within_text - the text in which you want to search for find_text.
+  					Arg3	Optional	Variant	Start_num - the character number in within_text at which you want to start searching.
+  			- for our example: SEARCH("/",N'n',1) -1, we need to substract 1 this because we need to get the index where / is found and not the index after '/'
+  		    The same logic applies to obtain the sub-categories but with a slightly modified formula: "=RIGHT(N2,LEN(N2)-SEARCH("/",N2))"
+  			- RIGHT()'s structure is similar to LEFT(), but this method returns the string from right to left, based on our example: "film & video/television"
+  			- I'm using the operation [len(N'n') - SEARCH("/",N'n') this will return an integer which will be utilized to get the index that will tell our RIGHT() method up to what point return our string,
+  			So using "=RIGHT(film & video/television,LEN(film & video/television)-SEARCH("/",film & video/television))" we will obtain the sub-category: "television"
+  			- because Len() returns 23, Search() returns 13, so, =RIGHT("film & video/television",10) will return 10 characters from right to left, "television".
+  		* this logic applies to the rest of the cells under Category and sub-Category.
+
+		--> sources I obtained information from: https://docs.microsoft.com/en-us/office/vba/api/excel.worksheetfunction.search
 
   ![Category Stats](Images/CategoryStats.png)
 
