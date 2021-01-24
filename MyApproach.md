@@ -11,7 +11,7 @@ Getting funded on Kickstarter requires meeting or exceeding the project's initia
 ### Before You Begin
 
 1. Create a new space for this project called `excel-challenge` in either DropBox or Google Drive. **Do not add this homework to an existing space**.
-        `MY APPROACH`
+       -->  `MY APPROACH`
         My Approach: I created a local folder on my pc, and I also created a new repository with the name "excel-challenge' on github that will contain the final version of this work
               - Also, the folder was uploaded to google drive and the link was set a public
 
@@ -27,21 +27,23 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
 * Use conditional formatting to fill each cell in the `state` column with a different color, depending on whether the associated campaign was successful, failed, or canceled, or is currently live.
 
   * Create a new column O called `Percent Funded` that uses a formula to uncover how much money a campaign made to reach its initial goal.
-  `MY APPROACH`
+  -->  `MY APPROACH`
   	My Approach: I decided to just divide "pledge" by "goal", leave the result of the division as a number and format the cells to represent that value as percentage and rounding the result(only formatting, the whole decimal  number is still there)
 		    Formula: "=(E2/D2))" this gives us the percent funded value needed
 
 * Use conditional formatting to fill each cell in the `Percent Funded` column using a three-color scale. The scale should start at 0 and be a dark shade of red, transitioning to green at 100, and blue at 200.
-    `MY APPROACH`
+  -->  `MY APPROACH`
     My Approach: for this step I decided to format all cells on their values : Minimum: 0, Midpoint: 1, Maximum: 2,
     		    This because I left the cell value as a float number and not an actual percentage
 
   * Create a new column P called `Average Donation` that uses a formula to uncover how much each backer for the project paid on average.
-    `MY APPROACH`
+  -->  `MY APPROACH`
     My Approach: I decided to use the next formula: "=IF(L2=0,0,ROUND((E2/L2),2))" this because I wanted to be able to avoid the error resulted from trying to divide 0/0 when we know that if "backers_count" = 0 pledge value will be 0
   			- I also applied round function to the result when L'n' is not 0 and this will only show 2 decimal places
 
   * Create two new columns, one called `Category` at Q and another called `Sub-Category` at R, which use formulas to split the `Category and Sub-Category` column into two parts.
+  -->  `MY APPROACH`
+   
     My approach: To make this work I decided to make use of the Left() which allows to split text based on index input parameter, Formula: "=LEFT(N2,SEARCH("/",N2,1)-1)"
   			- The Left() function takes 2 arguments as parameters first one is the string and second is a integer that represents up to what index we will take the text, example: "film & video/television" to obtain the category(left of the '/') we need to take the first 12 characters
   			- to be able to find that integer number I have made use of the function SEARCH(), which returns an integer higher than 0 if it finds a specific string in the given sample, it receives 3 parameters: SEARCH(Arg1,Arg2,Arg3(optional))
@@ -70,6 +72,10 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
   * Create a new sheet with a pivot table that will analyze your initial sheet to count how many campaigns were successful, failed, or canceled, or are currently live per **sub-category**.
 
   * Create a stacked column pivot chart that can be filtered by country and parent-category based on the table you have created.
+   `MY APPROACH`
+    My approach: Since there's no such Column or field called 'Parent Category', assuming the Column named 
+    'Category' is actually the parent-category, I renamed the field under PivotTable Tools > Analyze> Active Field group, clicked the Active Field text box and renamed to 'Parent Category' which would conclude with this step
+    --> sources I obtained information from: https://support.microsoft.com/en-gb/office/rename-a-field-or-item-in-a-pivottable-or-pivotchart-a2393a71-faab-4314-be4a-0aca76804dc9
 
 * The dates stored within the `deadline` and `launched_at` columns use Unix timestamps. Fortunately for us, [there is a formula](https://www.extendoffice.com/documents/excel/2473-excel-timestamp-to-date.html) that can be used to convert these timestamps to a normal date.
 
