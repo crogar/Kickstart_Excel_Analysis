@@ -72,9 +72,11 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
   * Create a new sheet with a pivot table that will analyze your initial sheet to count how many campaigns were successful, failed, or canceled, or are currently live per **sub-category**.
 
   * Create a stacked column pivot chart that can be filtered by country and parent-category based on the table you have created.
-   `MY APPROACH`
+ 
+ 
     My approach: Since there's no such Column or field called 'Parent Category', assuming the Column named 
     'Category' is actually the parent-category, I renamed the field under PivotTable Tools > Analyze> Active Field group, clicked the Active Field text box and renamed to 'Parent Category' which would conclude with this step
+
     --> sources I obtained information from: https://support.microsoft.com/en-gb/office/rename-a-field-or-item-in-a-pivottable-or-pivotchart-a2393a71-faab-4314-be4a-0aca76804dc9
 
 * The dates stored within the `deadline` and `launched_at` columns use Unix timestamps. Fortunately for us, [there is a formula](https://www.extendoffice.com/documents/excel/2473-excel-timestamp-to-date.html) that can be used to convert these timestamps to a normal date.
