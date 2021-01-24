@@ -1,4 +1,6 @@
 # Excel Homework: Kickstart My Chart
+# this is a version of README.md that shows the approach I took to solve the steps in
+# that file.
 
 ## Background
 
@@ -40,7 +42,7 @@ Using the Excel table provided, modify and analyze the data of 4,000 past Kickst
   			- I also applied round function to the result when L'n' is not 0 and this will only show 2 decimal places
 
   * Create two new columns, one called `Category` at Q and another called `Sub-Category` at R, which use formulas to split the `Category and Sub-Category` column into two parts.
-    My approach: To make this work I decided to make use of the Left() which allows to split text based on index input paramater, Formula: "=LEFT(N2,SEARCH("/",N2,1)-1)"
+    My approach: To make this work I decided to make use of the Left() which allows to split text based on index input parameter, Formula: "=LEFT(N2,SEARCH("/",N2,1)-1)"
   			- The Left() function takes 2 arguments as parameters first one is the string and second is a integer that represents up to what index we will take the text, example: "film & video/television" to obtain the category(left of the '/') we need to take the first 12 characters
   			- to be able to find that integer number I have made use of the function SEARCH(), which returns an integer higher than 0 if it finds a specific string in the given sample, it receives 3 parameters: SEARCH(Arg1,Arg2,Arg3(optional))
   					Name	Required/Optional	Data type	Description
