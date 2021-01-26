@@ -1,6 +1,6 @@
 # Excel Homework: Kickstart My Chart
 # this is a version of README.md that shows the approach I took to solve the steps in
-# that file.
+# that file. JIC
 
 ## Background
 
